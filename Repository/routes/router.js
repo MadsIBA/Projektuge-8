@@ -68,7 +68,7 @@ exports.route = function(req, res, body) {
     type = contentTypes.svg;
   } else if (req.url.indexOf('.ico') !== -1) {
     asset = 'ico';
-    routedUrl = req.url;
+    routedUrl = 'favicon.ico';
     type = contentTypes.ico;
   } else {
     if (req.url.charAt(req.url.length - 1) === '/') {
