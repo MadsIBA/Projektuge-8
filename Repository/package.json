@@ -1,0 +1,12 @@
+{
+  "name": "projekt-uge-8",
+  "version": "1.0.0",
+  "description": "Webprogrammering II NodeJS og (Sikkerhed)",
+  "main": "main.js",
+  "scripts": {
+    "pretest": "npm install",
+    "test": "node main"
+  },
+  "author": "Casper Pedersen, Jacob Krag, Mads Møller",
+  "license": "MIT"
+}
