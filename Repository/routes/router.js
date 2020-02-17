@@ -17,6 +17,8 @@ const contentTypes = {
 const routes = {
   // register handles to routes
   GET: {
+    '/display': handlers.getAndRespond,
+    '/edit': handlers.getAndRespond,
     '/start': handlers.getAndRespond,
     '/side': handlers.getAndRespond,
     '/about': handlers.getAndRespond,

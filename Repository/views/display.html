@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Edit the World Database</title>
+    <link rel="stylesheet" href="side.css" />
+</head>
+
+<body>
+    <header>
+        <h1>The world Database</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/display">Display the World Database</a></li>
+                <li><a href="/edit">Edit the World Database</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Display the World Database</h2>
+        <form method="post" action="/edit">
+            <div>
+                <p>
+                    Subject:<br />
+                    <input type="text" name="subject" required />
+                </p>
+                <p>
+                    Message:<br />
+                    <textarea name="message" required></textarea>
+                </p>
+                <p>
+                    Name: <br />
+                    <input type="text" name="name" required />
+                </p>
+                <p>
+                    Email:<br />
+                    <input type="email" name="email" required />
+                </p>
+                <p>
+                    <br /><input type="submit" value="Send" />
+                </p>
+            </div>
+        </form>
+    </main>
+    <footer>
+        <p>
+            &copy; 2020 | Gruppe 4 - Casper Pedersen, Jacob Krag, Mads Møller
+        </p>
+    </footer>
+</body>
+
+</html>
