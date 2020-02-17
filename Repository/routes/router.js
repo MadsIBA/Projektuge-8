@@ -31,7 +31,7 @@ const routes = {
   },
 
   POST: {
-    '/contact': handlers.receiveData
+    '/contact': handlers.getAndRespond
   }
 };
 
