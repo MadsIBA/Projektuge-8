@@ -25,6 +25,9 @@ const country = function(obj) {
 
   let htmlbot = `        </div>
     </body>
+    <footer>
+      <p>&copy; 2020 | Gruppe 4 - Casper Pedersen, Jacob Krag, Mads Møller</p>
+    </footer>
 </html>`;
 
   let dynamic = '';

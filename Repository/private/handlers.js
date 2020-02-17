@@ -91,6 +91,7 @@ module.exports = {
     });
   },
 
+  // ASK NIELS ABOUT THIS PART?
   findCities(req, res) {
     const mon = require('./monModelMod');
     const dbName = 'world';

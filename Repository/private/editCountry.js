@@ -57,6 +57,9 @@ const receipt = function(obj) {
               <p><a href="/">Return to front page</a><p>
           </div>
       </body>
+      <footer>
+        <p>&copy; 2020 | Gruppe 4 - Casper Pedersen, Jacob Krag, Mads Møller</p>
+      </footer>
   </html>`;
   return html;
 };
