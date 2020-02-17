@@ -1,116 +1,37 @@
 'use strict';
 /*
  * handlers.js
- * Requesthandlers to be called by the router mechanism
+ * Requesthandlers to be called by the routing mechanism
  */
 const fs = require('fs'); // file system access
-const httpStatus = require('http-status-codes'); // http sc
-const lib = require('../private/libWebUtil'); // home grown utilities
-const experimental = require('../private/myTemplater'); // highly experimental template
+const httpStatus = require('http-status-codes');
 
-module.exports = {
-  home(req, res) {
-    let path = req.url;
-    if (path === '/' || path === '/start') {
-      path = '/index';
-    }
-    path = 'views' + path + '.html';
+const goError = function(res) {
+  res.writeHead(httpStatus.NOT_FOUND, {
+    // http page not found, 404
+    'Content-Type': 'text/html; charset=utf-8'
+  });
+  res.write('<h1>404 Not Found</h1>');
+  res.end();
+};
+
+exports.getAndRespond = function(path, contentType, res) {
+  console.log(path);
+  if (fs.existsSync(path)) {
+    // does file exist, sync
     fs.readFile(path, function(err, data) {
+      // read
       if (err) {
-        console.log(`Not found file: ${path}.`);
+        // if read error
+        console.log('nml: ' + err); // inform server
+        goError(res); // inform user
+        return; // back to caller
       }
-      res.writeHead(httpStatus.OK, {
-        // yes, write relevant header
-        'Content-Type': 'text/html; charset=utf-8'
-      });
-      res.write(data);
-      res.end();
+      res.writeHead(httpStatus.OK, contentType); // prep header
+      res.write(data); // prep body with read data
+      res.end(); // send response
     });
-  },
-  js(req, res) {
-    let path = 'public/javascripts' + req.url;
-    fs.readFile(path, function(err, data) {
-      if (err) {
-        console.log(`Not found file: ${path}.`);
-      }
-      res.writeHead(httpStatus.OK, {
-        // yes, write relevant header
-        'Content-Type': 'application/javascript; charset=utf-8'
-      });
-      res.write(data);
-      res.end();
-    });
-  },
-  css(req, res) {
-    let path = 'public/stylesheets' + req.url;
-    fs.readFile(path, function(err, data) {
-      if (err) {
-        console.log(`Not found file: ${path}`);
-      }
-      res.writeHead(httpStatus.OK, {
-        // yes, write relevant header
-        'Content-Type': 'text/css; charset=utf-8'
-      });
-      res.write(data);
-      res.end();
-    });
-  },
-  png(req, res) {
-    let path = 'public/images' + req.url;
-    fs.readFile(path, function(err, data) {
-      if (err) {
-        console.log(`Not found file: ${path}`);
-      }
-      res.writeHead(httpStatus.OK, {
-        // yes, write relevant header
-        'Content-Type': 'image/png'
-      });
-      res.write(data);
-      res.end();
-    });
-  },
-  jpg(req, res) {
-    let path = 'public/images' + req.url;
-    fs.readFile(path, function(err, data) {
-      if (err) {
-        console.log(`Not found file: ${path}`);
-      }
-      res.writeHead(httpStatus.OK, {
-        // yes, write relevant header
-        'Content-Type': 'image/jpg'
-      });
-      res.write(data);
-      res.end();
-    });
-  },
-  ico(req, res) {
-    let path = '.' + req.url;
-    fs.readFile(path, function(err, data) {
-      if (err) {
-        console.log(`Not found file: ${path}`);
-      }
-      res.writeHead(httpStatus.OK, {
-        // yes, write relevant header
-        'Content-Type': 'image/x-icon'
-      });
-      res.write(data);
-      res.end();
-    });
-  },
-  notfound(req, res) {
-    console.log(`Handler 'notfound' was called for route ${req.url}`);
-    res.writeHead(httpStatus.OK, {
-      // yes, write relevant header
-      'Content-Type': 'text/html'
-    });
-    res.end('<h3>not found - check the log</h3>');
-  },
-  receiveData(req, res, data) {
-    let obj = lib.makeWebArrays(req, data); // home made GET and POST objects
-    res.writeHead(httpStatus.OK, {
-      // yes, write relevant header
-      'Content-Type': 'text/html; charset=utf-8'
-    });
-    res.write(experimental.receipt(obj)); // home made templating for native node
+  } else {
+    goError(res); // doesnt exist error
   }
 };

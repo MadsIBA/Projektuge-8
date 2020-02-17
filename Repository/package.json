@@ -8,5 +8,8 @@
     "test": "node main"
   },
   "author": "Casper Pedersen, Jacob Krag, Mads Møller",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "http-status-codes": "^1.4.0"
+  }
 }
