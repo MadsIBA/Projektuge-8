@@ -10,6 +10,8 @@
   "author": "Casper Pedersen, Jacob Krag, Mads Møller",
   "license": "MIT",
   "dependencies": {
-    "http-status-codes": "^1.4.0"
+    "http-status-codes": "^1.4.0",
+    "mongo": "^0.1.0",
+    "mongodb": "^3.5.3"
   }
 }

@@ -11,23 +11,18 @@ const receipt = function(obj) {
         <title>McKilroy's First Test Template</title>
     </head>
     <body>
-        <h1>Kilroy's Receipt</h1>
+        <h1>Contact Receipt</h1>
         <div>
+            <h1>Thanks for contacting us "${obj.POST.name}"</h1>
             <p>You entered the following</p>
             <h3>Subject</h3>
             <p>${obj.POST.subject}</p>
 
             <h3>Message</h3>
-            <pre>${obj.POST.message}</pre>
-
-            <h3>Name</h3>
-            <p>${obj.POST.name}</p>
-
-            <h3>Email</h3>
-            <p>${obj.POST.email}</p>
+            <p>${obj.POST.message}</p>
         </div>
         <div>
-            <h3>We will get back to you.</h3>
+            <h3>We will get back to you at ${obj.POST.email}.</h3>
             <p><a href="/">Return to front page</a><p>
         </div>
     </body>

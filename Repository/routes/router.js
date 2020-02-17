@@ -17,12 +17,10 @@ const contentTypes = {
 const routes = {
   // register handles to routes
   GET: {
-    '/display': handlers.getAndRespond,
-    '/edit': handlers.getAndRespond,
     '/start': handlers.getAndRespond,
-    '/side': handlers.getAndRespond,
-    '/about': handlers.getAndRespond,
+    '/view': handlers.findCitiesOld,
     '/contact': handlers.getAndRespond,
+    '/edit': handlers.getAndRespond,
     js: handlers.getAndRespond,
     css: handlers.getAndRespond,
     png: handlers.getAndRespond,
@@ -33,7 +31,8 @@ const routes = {
   },
 
   POST: {
-    '/contact': handlers.getAndRespond
+    '/contact': handlers.receiveData,
+    '/edit': handlers.editCountry
   }
 };
 
@@ -80,6 +79,18 @@ exports.route = function(req, res, body) {
       asset = req.url;
       routedUrl = 'views/index.html';
       type = contentTypes.html;
+    } else if (req.url === '/view') {
+      asset = req.url;
+      routes[req.method][asset](req, res);
+      return;
+    } else if (req.url === '/contact' && req.method === 'POST') {
+      asset = req.url;
+      routes[req.method][asset](req, res, body);
+      return;
+    } else if (req.url === '/edit' && req.method === 'POST') {
+      asset = req.url;
+      routes[req.method][asset](req, res, body);
+      return;
     } else {
       asset = req.url;
       routedUrl = 'views' + req.url + '.html';
@@ -90,13 +101,11 @@ exports.route = function(req, res, body) {
   try {
     if (routes[req.method][asset]) {
       // does handler exist to this route
-      console.log('routing: ' + asset + ' file: ' + routedUrl);
       routes[req.method][asset](routedUrl, type, res); // yes, call it with params
     } else {
       // no, return error msg
-      console.log('nmlnf: ' + req.url);
       res.writeHead(httpStatus.NOT_FOUND, contentTypes.text);
-      res.end(`route for <kbd>${req.url}</kbd> not found`);
+      res.end(`requested page: "${req.url}" not found`);
     }
   } catch (ex) {
     // routing exception
