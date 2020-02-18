@@ -37,7 +37,7 @@ const listdb = function(obj) {
 
   let dynamic = '';
   for (var i = 0; i < `${obj.length}`; i++) {
-    dynamic += `<p>Land: <em>${obj[i].name},</em> Kontinent: ${obj[i].continent}, Areal: ${obj[i].areaSize}, Befolkningstal: ${obj[i].population}, Styreform: ${obj[i].government}</p>`;
+    dynamic += `<p>By: <em>${obj[i].cityName},</em> Land: ${obj[i].cityCountry}, Befolkningstal: ${obj[i].cityPopulation}, Hovedestad: ${obj[i].cityCapital}</p>`;
   }
   //dynamic += `<p><em>${obj[0].name}</em></p>`;
 

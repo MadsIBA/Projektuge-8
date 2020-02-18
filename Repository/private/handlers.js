@@ -12,6 +12,8 @@ const editCountry = require('../private/editCountry'); // edit Countries in the 
 const editCity = require('../private/editCity'); // edit City in the Database
 const editLanguage = require('../private/editLanguage'); // edit Language in the Database
 const viewCountry = require('../private/viewCountry'); // view Countries in the Database
+const viewCity = require('../private/viewCity'); // view Cities in the Database
+const viewLanguage = require('../private/viewLanguage'); // view Languages in the Database
 
 const goError = function(res) {
   res.writeHead(httpStatus.NOT_FOUND, {
@@ -83,7 +85,7 @@ module.exports = {
     res.end();
   },
 
-  findCitiesOld(req, res) {
+  findCountry(req, res) {
     const mongo = require('mongodb');
     const dbname = 'world';
     const constr = `mongodb://localhost:27017`;
@@ -94,11 +96,12 @@ module.exports = {
       }
       const db = con.db(dbname); // make dbname the current db
       /* Retrieve,
-       * reads cities from the database
+       * reads collection from the database
        */
+
       db.collection('country')
         .find()
-        .toArray(function(err, country) {
+        .toArray(function(err, collection) {
           if (err) {
             throw err;
           }
@@ -106,29 +109,72 @@ module.exports = {
             // yes, write relevant header
             'Content-Type': 'text/html; charset=utf-8'
           });
-          res.write(viewCountry.country(country)); // home made templating for native node
+          res.write(viewCountry.listdb(collection)); // home made templating for native node
           res.end();
           con.close();
         });
     });
   },
 
-  // ASK NIELS ABOUT THIS PART?
-  findCities(req, res) {
-    const mon = require('./monModelMod');
-    const dbName = 'world';
-    const coll = 'city';
-    mon.monCon(dbName, function(err, db) {
-      if (err) throw err;
-      mon.monR(db, coll, null, function(err, result) {
-        if (err) throw err;
-        res.writeHead(httpStatus.OK, {
-          // yes, write relevant header
-          'Content-Type': 'text/html; charset=utf-8'
+  findCity(req, res) {
+    const mongo = require('mongodb');
+    const dbname = 'world';
+    const constr = `mongodb://localhost:27017`;
+
+    mongo.connect(constr, { useNewUrlParser: true, useUnifiedTopology: true }, function(error, con) {
+      if (error) {
+        throw error;
+      }
+      const db = con.db(dbname); // make dbname the current db
+      /* Retrieve,
+       * reads collection from the database
+       */
+
+      db.collection('city')
+        .find()
+        .toArray(function(err, collection) {
+          if (err) {
+            throw err;
+          }
+          res.writeHead(httpStatus.OK, {
+            // yes, write relevant header
+            'Content-Type': 'text/html; charset=utf-8'
+          });
+          res.write(viewCity.listdb(collection)); // home made templating for native node
+          res.end();
+          con.close();
         });
-        res.write(experimental1.cities(result)); // home made templating for native node
-        res.end();
-      });
+    });
+  },
+
+  findLanguage(req, res) {
+    const mongo = require('mongodb');
+    const dbname = 'world';
+    const constr = `mongodb://localhost:27017`;
+
+    mongo.connect(constr, { useNewUrlParser: true, useUnifiedTopology: true }, function(error, con) {
+      if (error) {
+        throw error;
+      }
+      const db = con.db(dbname); // make dbname the current db
+      /* Retrieve,
+       * reads collection from the database
+       */
+
+      db.collection('language')
+        .find()
+        .toArray(function(err, collection) {
+          if (err) {
+            throw err;
+          }
+          res.writeHead(httpStatus.OK, {
+            // yes, write relevant header
+            'Content-Type': 'text/html; charset=utf-8'
+          });
+          res.write(viewLanguage.listdb(collection)); // home made templating for native node
+          res.end();
+          con.close();
+        });
     });
   }
 };

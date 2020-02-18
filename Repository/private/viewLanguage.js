@@ -37,7 +37,7 @@ const listdb = function(obj) {
 
   let dynamic = '';
   for (var i = 0; i < `${obj.length}`; i++) {
-    dynamic += `<p>Land: <em>${obj[i].name},</em> Kontinent: ${obj[i].continent}, Areal: ${obj[i].areaSize}, Befolkningstal: ${obj[i].population}, Styreform: ${obj[i].government}</p>`;
+    dynamic += `<p>Sprog: <em>${obj[i].language},</em> Land: ${obj[i].languageCountry}, Procent del af landet der taler sproget: ${obj[i].languagePercent}, Er sproget det officielle sprog: ${obj[i].languageOfficial}</p>`;
   }
   //dynamic += `<p><em>${obj[0].name}</em></p>`;
 

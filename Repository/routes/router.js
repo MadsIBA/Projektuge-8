@@ -18,7 +18,10 @@ const routes = {
   // register handles to routes
   GET: {
     '/start': handlers.getAndRespond,
-    '/view': handlers.findCitiesOld,
+    '/view': handlers.getAndRespond,
+    '/viewcountry': handlers.findCountry,
+    '/viewcity': handlers.findCity,
+    '/viewlanguage': handlers.findLanguage,
     '/contact': handlers.getAndRespond,
     '/edit': handlers.getAndRespond,
     js: handlers.getAndRespond,
@@ -81,9 +84,21 @@ exports.route = function(req, res, body) {
       asset = req.url;
       routedUrl = 'views/index.html';
       type = contentTypes.html;
-    } else if (req.url === '/view') {
+    } else if (req.url === '/viewcountry') {
       asset = req.url;
       routes[req.method][asset](req, res);
+      return;
+    } else if (req.url === '/viewcity') {
+      asset = req.url;
+      routes[req.method][asset](req, res);
+      return;
+    } else if (req.url === '/viewlanguage') {
+      asset = req.url;
+      routes[req.method][asset](req, res);
+      return;
+    } else if (req.url === '/view' && req.method === 'POST') {
+      asset = req.url;
+      routes[req.method][asset](req, res, body);
       return;
     } else if (req.url === '/contact' && req.method === 'POST') {
       asset = req.url;
