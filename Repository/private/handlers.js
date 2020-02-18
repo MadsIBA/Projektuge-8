@@ -9,6 +9,7 @@ const lib = require('../private/libWebUtil'); // home grown utilities
 const experimental = require('../private/myTemplater'); // highly experimental template
 const experimental1 = require('../private/myCities'); // highly experimental template
 const editCountry = require('../private/editCountry'); // edit Countries in the Database
+const editCity = require('../private/editCity'); // edit Countries in the Database
 const viewCountry = require('../private/viewCountry'); // view Countries in the Database
 
 const goError = function(res) {
@@ -58,6 +59,16 @@ module.exports = {
       'Content-Type': 'text/html; charset=utf-8'
     });
     res.write(editCountry.receipt(obj)); // home made templating for native node
+    res.end();
+  },
+
+  editCity(req, res, data) {
+    let obj = lib.makeWebArrays(req, data); // home made GET and POST objects
+    res.writeHead(httpStatus.OK, {
+      // yes, write relevant header
+      'Content-Type': 'text/html; charset=utf-8'
+    });
+    res.write(editCity.receipt(obj)); // home made templating for native node
     res.end();
   },
 

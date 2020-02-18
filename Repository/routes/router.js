@@ -32,7 +32,8 @@ const routes = {
 
   POST: {
     '/contact': handlers.receiveData,
-    '/edit': handlers.editCountry
+    '/edit': handlers.editCountry,
+    '/city': handlers.editCity
   }
 };
 
@@ -88,6 +89,10 @@ exports.route = function(req, res, body) {
       routes[req.method][asset](req, res, body);
       return;
     } else if (req.url === '/edit' && req.method === 'POST') {
+      asset = req.url;
+      routes[req.method][asset](req, res, body);
+      return;
+    } else if (req.url === '/city' && req.method === 'POST') {
       asset = req.url;
       routes[req.method][asset](req, res, body);
       return;

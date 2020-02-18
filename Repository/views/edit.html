@@ -30,7 +30,16 @@
                 </p>
                 <p>
                     Kontinent:<br />
-                    <input type="text" name="continent" required>
+                    <!--<input type="text" name="continent" required>-->
+                    <select name="continent" id="continent" required>
+                        <option value="Asia">Asia</option>
+                        <option value="Africa">Africa</option>
+                        <option value="North America">Norht America</option>
+                        <option value="South America">South America</option>
+                        <option value="Antarctica">Antarctica</option>
+                        <option value="Europe">Europe</option>
+                        <option value="Australia">Australia</option>
+                    </select>
                 </p>
                 <p>
                     Areal: <br />
@@ -43,6 +52,31 @@
                 <p>
                     Styreform:<br />
                     <input type="text" name="government" required />
+                </p>
+                <p>
+                    <br /><input type="submit" value="Send" />
+                </p>
+            </div>
+        </form>
+
+        <form method="post" action="/city">
+            <div>
+                <h2>City</h2>
+                <p>
+                    Navn:<br />
+                    <input type="text" name="cityName" required />
+                </p>
+                <p>
+                    Land:<br />
+                    <input type="text" name="cityCountry" required />
+                </p>
+                <p>
+                    Befolkningstal: <br />
+                    <input type="text" name="cityPopulation" required />
+                </p>
+                <p>
+                    Hovedestad:<br />
+                    <input type="text" name="cityCapital" required />
                 </p>
                 <p>
                     <br /><input type="submit" value="Send" />
