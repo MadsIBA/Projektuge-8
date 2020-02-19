@@ -1,3 +1,5 @@
+<!--DENNE SIDE ER BLEVET ERSTATTET AF ../private/countryFix. Gem til reference-->
+
 <!DOCTYPE html>
 <html>
 
@@ -5,9 +7,10 @@
     <meta charset="utf-8" />
     <title>The World Databas (Edit)</title>
     <link rel="stylesheet" href="side.css" />
+    <script src="countryFix.js" defer></script>
 </head>
 
-<body>
+<body onload="myFunction()">
     <header>
         <nav>
             <ul>
@@ -20,7 +23,7 @@
     </header>
 
     <main>
-        <div class="editGrid">
+        <div class=" editGrid">
             <form method="post" action="/edit">
                 <div>
                     <h2>Country</h2>

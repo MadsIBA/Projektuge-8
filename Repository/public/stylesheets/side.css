@@ -59,7 +59,12 @@ body {
 }
 
 main {
+    margin-top: 3em;
     padding: 1em;
+}
+
+form p {
+    padding-bottom: 1em;
 }
 
 footer {
@@ -85,6 +90,13 @@ footer {
     padding: 1em;
     font-family: 'Montserrat', sans-serif;
     font-size: small;
+}
+
+.viewMain {
+    position: fixed;
+    top: 33%;
+    left: 50%;
+    transform: translate(-50%, 0);
 }
 
 
