@@ -11,22 +11,23 @@ const listdb = function(obj) {
     </head>
     <body>
         <header>
-            <h1>The World Database (View)</h1>
             <nav>
                 <ul>
                     <li><a href="/">Home</a></li>
-                    <li><a href="/view">View the World Database</a></li>
+                    <li><a href="/view" class="active">View the World Database</a></li>
                     <li><a href="/edit">Edit the World Database</a></li>
                     <li><a href="/contact">Contact</a></li>
                 </ul>
             </nav>
         </header>
         <main>
-          <button><a href="/viewcountry">View the Country Database</a></button>
-          <button><a href="/viewcity">View the City Database</a></button>
-          <button><a href="/viewlanguage">View the Language Database</a></button>
+            <div class="viewGrid">
+                <a href="/viewcountry"><button class="buttonView">View the Country Database</button></a>
+                <a href="/viewcity"><button class="buttonView active">View the City Database</button></a>
+                <a href="/viewlanguage"><button class="buttonView">View the Language Database</button></a>
+            </div>
         </main>
-        <div>`;
+        <div class="collection">`;
 
   let htmlbot = `        </div>
     </body>
@@ -37,7 +38,15 @@ const listdb = function(obj) {
 
   let dynamic = '';
   for (var i = 0; i < `${obj.length}`; i++) {
-    dynamic += `<p>By: <em>${obj[i].cityName},</em> Land: ${obj[i].cityCountry}, Befolkningstal: ${obj[i].cityPopulation}, Hovedestad: ${obj[i].cityCapital}</p>`;
+    dynamic += `
+    <p>
+      By: <em>${obj[i].cityName}</em><br>
+        <div class="collectionDetails">
+          Land: ${obj[i].cityCountry}<br>
+          Befolkningstal: ${obj[i].cityPopulation}<br>
+          Hovedestad: ${obj[i].cityCapital}<hr>
+        </div>
+    </p>`;
   }
   //dynamic += `<p><em>${obj[0].name}</em></p>`;
 

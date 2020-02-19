@@ -9,41 +9,42 @@
 
 <body>
     <header>
-        <h1>Contact</h1>
         <nav>
             <ul>
                 <li><a href="/">Home</a></li>
                 <li><a href="/view">View the World Database</a></li>
                 <li><a href="/edit">Edit the World Database</a></li>
-                <li><a href="/contact">Contact</a></li>
+                <li><a href="/contact" class="active">Contact</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <h2>Contact Form</h2>
-        <form method="post" action="/contact">
-            <div>
-                <p>
-                    Subject:<br />
-                    <input type="text" name="subject" required />
-                </p>
-                <p>
-                    Message:<br />
-                    <textarea name="message" required></textarea>
-                </p>
-                <p>
-                    Name: <br />
-                    <input type="text" name="name" required />
-                </p>
-                <p>
-                    Email:<br />
-                    <input type="email" name="email" required />
-                </p>
-                <p>
-                    <br /><input type="submit" value="Send" />
-                </p>
-            </div>
-        </form>
+        <div class="contactGrid">
+            <form method="post" action="/contact">
+                <div>
+                    <h2>Contact Form</h2>
+                    <p>
+                        Subject:<br />
+                        <input type="text" name="subject" required />
+                    </p>
+                    <p>
+                        <textarea name="message" rows="10" cols="40" maxlength="256"
+                            placeholder="Skriv din besked her..." required></textarea>
+                    </p>
+                    <p>
+                        Name: <br />
+                        <input type="text" name="name" required />
+                    </p>
+                    <p>
+                        Email:<br />
+                        <input type="email" name="email" required />
+                    </p>
+                    <p>
+                        <br /><input type="submit" value="Send" />
+                    </p>
+                </div>
+            </form>
+        </div>
     </main>
     <footer>
         <p>

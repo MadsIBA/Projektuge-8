@@ -35,26 +35,33 @@ const receipt = function(obj) {
       <head>
           <meta charset="utf-8"/>
           <title>Language Edit Completed</title>
+          <link rel="stylesheet" href="side.css" />
       </head>
       <body>
-          <h1>Language Edit Completed</h1>
-          <div>
-              <p>You entered the following</p>
-              <h3>Sprog</h3>
-              <p>${obj.POST.language}</p>
-  
-              <h3>Land</h3>
-              <p>${obj.POST.languageCountry}</p>
+          <header>
+              <nav>
+                  <ul>
+                      <li><a href="/">Home</a></li>
+                      <li><a href="/view">View the World Database</a></li>
+                      <li><a href="/edit" class="active">Edit the World Database</a></li>
+                      <li><a href="/contact">Contact</a></li>
+                  </ul>
+              </nav>
+          </header>
+          <main>
+              <div class="collection">
+                  <p>
+                      <h2>Language Added: ${obj.POST.language}</h2><br>
 
-              <h3>Procent del af landet der taler sproget</h3>
-              <p>${obj.POST.languagePercent}</p>
-
-              <h3>Er sproget det officielle sprog</h3>
-              <p>${obj.POST.languageOfficial}</p>
-          </div>
-          <div>
-              <p><a href="/">Return to front page</a><p>
-          </div>
+                      <div class="collectionDetails">
+                        Land: ${obj.POST.languageCountry}<br>
+                        Procent der taler sproget: ${obj.POST.languagePercent}<br>
+                        Nationalt sprog: ${obj.POST.languageOfficial}<br>
+                      </div>
+                  </p>
+                      <button><a href="/">Return to front page</a></button>
+              </div>
+          </main>
       </body>
       <footer>
         <p>&copy; 2020 | Gruppe 4 - Casper Pedersen, Jacob Krag, Mads Møller</p>

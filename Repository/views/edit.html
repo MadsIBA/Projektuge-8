@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -9,105 +9,102 @@
 
 <body>
     <header>
-        <h1>The World Database (Edit)</h1>
         <nav>
             <ul>
                 <li><a href="/">Home</a></li>
                 <li><a href="/view">View the World Database</a></li>
-                <li><a href="/edit">Edit the World Database</a></li>
+                <li><a href="/edit" class="active">Edit the World Database</a></li>
                 <li><a href="/contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <form method="post" action="/edit">
-            <div>
-                <h2>Country</h2>
-                <p>
-                    Navn:<br />
-                    <input type="text" name="name" required />
-                </p>
-                <p>
-                    Kontinent:<br />
-                    <!--<input type="text" name="continent" required>-->
-                    <select name="continent" id="continent" required>
-                        <option value="Asia">Asia</option>
-                        <option value="Africa">Africa</option>
-                        <option value="North America">Norht America</option>
-                        <option value="South America">South America</option>
-                        <option value="Antarctica">Antarctica</option>
-                        <option value="Europe">Europe</option>
-                        <option value="Australia">Australia</option>
-                    </select>
-                </p>
-                <p>
-                    Areal: <br />
-                    <input type="text" name="areaSize" required />
-                </p>
-                <p>
-                    Befolkningstal:<br />
-                    <input type="text" name="population" required />
-                </p>
-                <p>
-                    Styreform:<br />
-                    <input type="text" name="government" required />
-                </p>
-                <p>
-                    <br /><input type="submit" value="Send" />
-                </p>
-            </div>
-        </form>
+        <div class="editGrid">
+            <form method="post" action="/edit">
+                <div>
+                    <h2>Country</h2>
+                    <p>
+                        Navn:<br />
+                        <input type="text" name="name" required />
+                    </p>
+                    <p>
+                        Kontinent:<br />
+                        <!--<input type="text" name="continent" required>-->
+                        <select name="continent" id="continent" required>
+                            <option disabled selected value> -- Vælg et kontinent -- </option>
+                            <option value="Asia">Asia</option>
+                            <option value="Africa">Africa</option>
+                            <option value="North America">Norht America</option>
+                            <option value="South America">South America</option>
+                            <option value="Antarctica">Antarctica</option>
+                            <option value="Europe">Europe</option>
+                            <option value="Australia">Australia</option>
+                        </select>
+                    </p>
+                    <p>
+                        Areal: <br />
+                        <input type="text" name="areaSize" required />
+                    </p>
+                    <p>
+                        Befolkningstal:<br />
+                        <input type="text" name="population" required />
+                    </p>
+                    <p>
+                        Styreform:<br />
+                        <input type="text" name="government" required />
+                    </p>
+                    <p><br /><input type="submit" value="Send" /></p>
+                </div>
+            </form>
 
-        <form method="post" action="/city">
-            <div>
-                <h2>City</h2>
-                <p>
-                    Navn:<br />
-                    <input type="text" name="cityName" required />
-                </p>
-                <p>
-                    Land:<br />
-                    <input type="text" name="cityCountry" required />
-                </p>
-                <p>
-                    Befolkningstal: <br />
-                    <input type="text" name="cityPopulation" required />
-                </p>
-                <p>
-                    Hovedestad:<br />
-                    <input type="text" name="cityCapital" required />
-                </p>
-                <p>
-                    <br /><input type="submit" value="Send" />
-                </p>
-            </div>
-        </form>
+            <form method="post" action="/city">
+                <div>
+                    <h2>City</h2>
+                    <p>
+                        Navn:<br />
+                        <input type="text" name="cityName" required />
+                    </p>
+                    <p>
+                        Land:<br />
+                        <input type="text" name="cityCountry" required />
+                    </p>
+                    <p>
+                        Befolkningstal: <br />
+                        <input type="text" name="cityPopulation" required />
+                    </p>
+                    <p>
+                        Hovedestad:<br />
+                        <input type="text" name="cityCapital" required />
+                    </p>
+                    <p><br /><input type="submit" value="Send" /></p>
+                </div>
+            </form>
 
-        <form method="post" action="/language">
-            <div>
-                <h2>Sprog</h2>
-                <p>
-                    Sprog:<br />
-                    <input type="text" name="language" required />
-                </p>
-                <p>
-                    Land:<br />
-                    <input type="text" name="languageCountry" required />
-                </p>
-                <p>
-                    Procent del af landet der taler sproget: <br />
-                    <input type="text" name="languagePercent" required />
-                </p>
-                <p>
-                    Er sproget det officielle sprog:<br />
-                    <input type="text" name="languageOfficial" required />
-                </p>
-                <p>
-                    <br /><input type="submit" value="Send" />
-                </p>
-            </div>
-        </form>
+            <form method="post" action="/language">
+                <div>
+                    <h2>Language</h2>
+                    <p>
+                        Sprog:<br />
+                        <input type="text" name="language" required />
+                    </p>
+                    <p>
+                        Land:<br />
+                        <input type="text" name="languageCountry" required />
+                    </p>
+                    <p>
+                        Procent der taler sproget: <br />
+                        <input type="text" name="languagePercent" required />
+                    </p>
+                    <p>
+                        Nationalt sprog:<br />
+                        <label><input type="radio" name="languageOfficial" value="Ja" required>Ja</label>
+                        <label><input type="radio" name="languageOfficial" value="Nej">Nej</label>
+                    </p>
+                    <p><br /><input type="submit" value="Send" /></p>
+                </div>
+            </form>
+        </div>
     </main>
 
     <footer>

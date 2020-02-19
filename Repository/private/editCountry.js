@@ -33,29 +33,34 @@ const receipt = function(obj) {
       <head>
           <meta charset="utf-8"/>
           <title>Country Edit Completed</title>
+          <link rel="stylesheet" href="side.css" />
       </head>
       <body>
-          <h1>Country Edit Completed</h1>
-          <div>
-              <p>You entered the following</p>
-              <h3>Land</h3>
-              <p>${obj.POST.name}</p>
-  
-              <h3>Kontinent</h3>
-              <p>${obj.POST.continent}</p>
-
-              <h3>Areal</h3>
-              <p>${obj.POST.areaSize}</p>
-
-              <h3>Befolkningstal</h3>
-              <p>${obj.POST.population}</p>
-
-              <h3>Styreform</h3>
-              <p>${obj.POST.government}</p>
-          </div>
-          <div>
-              <p><a href="/">Return to front page</a><p>
-          </div>
+          <header>
+              <nav>
+                  <ul>
+                      <li><a href="/">Home</a></li>
+                      <li><a href="/view">View the World Database</a></li>
+                      <li><a href="/edit" class="active">Edit the World Database</a></li>
+                      <li><a href="/contact">Contact</a></li>
+                  </ul>
+              </nav>
+          </header>
+          <main>
+              <div class="collection">
+                  <p>
+                      <h2>Country Added: ${obj.POST.name}</h2><br>
+                      
+                      <div class="collectionDetails">
+                          Kontinent: ${obj.POST.continent}<br>
+                          Areal: ${obj.POST.areaSize}<br>
+                          Befolkningstal: ${obj.POST.population}<br>
+                          Styreform: ${obj.POST.government}<br>
+                      </div>
+                  </p>
+                      <button><a href="/">Return to front page</a></button>
+              </div>  
+          </main>
       </body>
       <footer>
         <p>&copy; 2020 | Gruppe 4 - Casper Pedersen, Jacob Krag, Mads Møller</p>
