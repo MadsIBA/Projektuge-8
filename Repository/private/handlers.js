@@ -110,6 +110,8 @@ module.exports = {
                         // yes, write relevant header
                         'Content-Type': 'text/html; charset=utf-8'
                     });
+                    console.log(collection);
+
                     res.write(viewCountry.listdb(collection)); // home made templating for native node
                     res.end();
                     con.close();
@@ -141,6 +143,8 @@ module.exports = {
                         // yes, write relevant header
                         'Content-Type': 'text/html; charset=utf-8'
                     });
+                    console.log(collection);
+
                     res.write(viewCity.listdb(collection)); // home made templating for native node
                     res.end();
                     con.close();
@@ -172,6 +176,8 @@ module.exports = {
                         // yes, write relevant header
                         'Content-Type': 'text/html; charset=utf-8'
                     });
+                    console.log(collection);
+
                     res.write(viewLanguage.listdb(collection)); // home made templating for native node
                     res.end();
                     con.close();

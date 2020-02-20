@@ -34,6 +34,7 @@ const receipt = function(obj) {
                 if (err) {
                     throw err;
                 }
+                console.log(object);
                 console.log('Language edit Completed');
                 con.close();
             }

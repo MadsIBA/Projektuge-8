@@ -9,10 +9,9 @@ const listdb = function(obj) {
         <meta charset="utf-8" />
         <title>The World Databas (Edit)</title>
         <link rel="stylesheet" href="side.css" />
-        <script src="countryFix.js" defer></script>
     </head>
     
-    <body onload="myFunction()">
+    <body>
         <header>
             <nav>
                 <ul>
