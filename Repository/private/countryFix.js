@@ -9,6 +9,8 @@ const listdb = function(obj) {
         <meta charset="utf-8" />
         <title>The World Databas (Edit)</title>
         <link rel="stylesheet" href="side.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script defer src="sortSelect.js"></script>
     </head>
     
     <body>
@@ -74,7 +76,7 @@ const listdb = function(obj) {
                         </p>
                         <p>
                             Country:<br />
-                            <select name="cityCountry" size="10" required>
+                            <select name="cityCountry" size="10" id="my_select" required>
                                 <option disabled selected value> -- Select Country -- </option>`;
     let htmlmiddle = `          
                             </select>        
@@ -104,7 +106,7 @@ const listdb = function(obj) {
                         </p>
                         <p>
                             Country:<br />
-                            <select name="languageCountry" size="10" required>
+                            <select name="languageCountry" size="10" id="my_select2" required>
                                 <option disabled selected value> -- Select Country -- </option>`;
     let htmlbot = `
                             </select>
