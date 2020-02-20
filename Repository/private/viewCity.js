@@ -2,12 +2,13 @@
 'use strict';
 
 const listdb = function(obj) {
-  let htmltop = `<!doctype html>
+    let htmltop = `<!doctype html>
 <html>
     <head>
         <meta charset="utf-8"/>
         <title>The World Database (View)</title>
         <link rel="stylesheet" href="side.css"/>
+        <script defer src="search.js"></script>
     </head>
     <body>
         <header>
@@ -27,30 +28,33 @@ const listdb = function(obj) {
                 <a href="/viewlanguage"><button class="buttonView">View the Language Database</button></a>
             </div>
         </main>
-        <div class="collection">`;
+        <div class="collection">
+        <button id="sortBtn" class="sortBtn" onclick="sortList()">Sort list by city</button>
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for city.." title="Type in a city">
+          <ul id="myUL" class="myUL">`;
 
-  let htmlbot = `        </div>
-    </body>
-    <footer>
-      <p>&copy; 2020 | Gruppe 4 - Casper Pedersen, Jacob Krag, Mads Møller</p>
-    </footer>
+    let htmlbot = `        </ul>
+    </div>
+   </body>
+   <footer>
+     <p>&copy; 2020 | Gruppe 4 - Casper Pedersen, Jacob Krag, Mads Møller</p>
+   </footer>
 </html>`;
 
-  let dynamic = '';
-  for (var i = 0; i < `${obj.length}`; i++) {
-    dynamic += `
-    <p>
-      By: <em>${obj[i].cityName}</em><br>
-        <div class="collectionDetails">
-          Land: ${obj[i].cityCountry}<br>
-          Befolkningstal: ${obj[i].cityPopulation}<br>
-          Hovedestad: ${obj[i].cityCapital}<hr>
-        </div>
-    </p>`;
-  }
-  //dynamic += `<p><em>${obj[0].name}</em></p>`;
+    let dynamic = '';
+    for (var i = 0; i < `${obj.length}`; i++) {
+        dynamic += `
+        <li><a href="#"><em>${obj[i].cityName}</em></a>
+          <div class="collectionDetails">
+            Land: ${obj[i].cityCountry}<br>
+            Befolkningstal: ${obj[i].cityPopulation}<br>
+            Hovedestad: ${obj[i].cityCapital}
+          </div>
+        </li>`;
+    }
+    //dynamic += `<p><em>${obj[0].name}</em></p>`;
 
-  return htmltop + dynamic + `</br>` + htmlbot;
+    return htmltop + dynamic + `</br>` + htmlbot;
 };
 
 exports.listdb = listdb;

@@ -2,12 +2,13 @@
 'use strict';
 
 const listdb = function(obj) {
-  let htmltop = `<!doctype html>
+    let htmltop = `<!doctype html>
 <html>
     <head>
         <meta charset="utf-8"/>
         <title>The World Database (View)</title>
         <link rel="stylesheet" href="side.css"/>
+        <script defer src="search.js"></script>
     </head>
     <body>
         <header>
@@ -27,31 +28,36 @@ const listdb = function(obj) {
                 <a href="/viewlanguage"><button class="buttonView">View the Language Database</button></a>
             </div>
         </main>
-        <div class="collection">`;
 
-  let htmlbot = `        </div>
+        
+        <div class="collection">
+        <button id="sortBtn" class="sortBtn" onclick="sortList()">Sort list by name</button>
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for country.." title="Type in a country">
+          <ul id="myUL" class="myUL">`;
+
+    let htmlbot = `</ul>
+     </div>
     </body>
     <footer>
       <p>&copy; 2020 | Gruppe 4 - Casper Pedersen, Jacob Krag, Mads Møller</p>
     </footer>
 </html>`;
 
-  let dynamic = '';
-  for (var i = 0; i < `${obj.length}`; i++) {
-    dynamic += `
-    <p>
-      Land: <em>${obj[i].name}</em><br>
-        <div class="collectionDetails">
-          Kontinent: ${obj[i].continent}<br>
-          Areal: ${obj[i].areaSize}<br>
-          Befolkningstal: ${obj[i].population}<br>
-          Styreform: ${obj[i].government}<hr>
-        </div>
-    </p>`;
-  }
-  //dynamic += `<p><em>${obj[0].name}</em></p>`;
+    let dynamic = '';
+    for (var i = 0; i < `${obj.length}`; i++) {
+        dynamic += `
+        <li><a href="#"><em>${obj[i].name}</em></a>
+          <div class="collectionDetails">
+            Kontinent: ${obj[i].continent}<br>
+            Areal: ${obj[i].areaSize}<br>
+            Befolkningstal: ${obj[i].population}<br>
+            Styreform: ${obj[i].government}
+          </div>
+        </li>`;
+    }
+    //dynamic += `<p><em>${obj[0].name}</em></p>`;
 
-  return htmltop + dynamic + `</br>` + htmlbot;
+    return htmltop + dynamic + `</br>` + htmlbot;
 };
 
 exports.listdb = listdb;

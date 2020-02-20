@@ -151,3 +151,63 @@ footer {
 .contactGrid p {
     font-size: small;
 }
+
+/*----SEARCH CONTROL----*/
+#myInput {
+    position: relative;
+    background-repeat: no-repeat;
+    width: 33%;
+    font-size: 16px;
+    padding: 12px 12px 12px 12px;
+    border: 1px solid #ddd;
+}
+
+.myUL {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+#myUL {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#myUL li {
+    float: none;
+    border: 1px solid #ddd;
+}
+
+#myUL li a {
+    margin-top: -1px;
+    /* Prevent double borders */
+    background-color: #bbbbbb;
+    padding: 12px;
+    text-decoration: none;
+    color: black;
+}
+
+#myUL li a:hover:not(.header) {
+    background-color: #4CAF50;
+}
+
+.sortBtn {
+    padding: 1em 1em;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: transparent;
+    color: white;
+    border-color: rgb(255, 255, 255);
+    outline-style: none;
+    cursor: pointer;
+    margin: 1em;
+}
+
+.sortBtn.active {
+    outline-style: none;
+    color: #808080;
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(100, 100, 100);
+    cursor: initial;
+}

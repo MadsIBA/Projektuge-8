@@ -5,32 +5,37 @@ const fs = require('fs');
 //Put in an External Document and set action on form to another html (remember routing)
 
 const receipt = function(obj) {
-  const mongo = require('mongodb');
-  const dbname = 'world';
-  const constr = `mongodb://localhost:27017`;
+    const mongo = require('mongodb');
+    const dbname = 'world';
+    const constr = `mongodb://localhost:27017`;
 
-  mongo.connect(constr, { useNewUrlParser: true, useUnifiedTopology: true }, function(error, con) {
-    if (error) {
-      throw error;
-    }
-    console.log(`Connected to server`);
-    const db = con.db(dbname); // make dbname the current db
-    /* Create,
-     * inserts countries into the database
-     */
+    mongo.connect(constr, { useNewUrlParser: true, useUnifiedTopology: true }, function(error, con) {
+        if (error) {
+            throw error;
+        }
+        console.log(`Connected to server`);
+        const db = con.db(dbname); // make dbname the current db
+        /* Create,
+         * inserts countries into the database
+         */
 
-    let object = { cityName: `${obj.POST.cityName}`, cityCountry: `${obj.POST.cityCountry}`, cityPopulation: `${obj.POST.cityPopulation}`, cityCapital: `${obj.POST.cityCapital}` };
+        let object = { cityName: `${obj.POST.cityName}`, cityCountry: `${obj.POST.cityCountry}`, cityPopulation: `${obj.POST.cityPopulation}`, cityCapital: `${obj.POST.cityCapital}` };
 
-    db.collection('city').updateOne({ cityName: `${object.cityName}` }, { $set: object }, { upsert: true }, function(err, collection) {
-      if (err) {
-        throw err;
-      }
-      console.log('City edit Completed');
-      con.close();
+        db.collection('city').updateOne(
+            { cityName: `${object.cityName}`, cityCountry: `${object.cityCountry}` },
+            { $set: { cityPopulation: `${obj.POST.cityPopulation}`, cityCapital: `${obj.POST.cityCapital}` } },
+            { upsert: true },
+            function(err, collection) {
+                if (err) {
+                    throw err;
+                }
+                console.log('City edit Completed');
+                con.close();
+            }
+        );
     });
-  });
 
-  let html = `<!doctype html>
+    let html = `<!doctype html>
   <html>
       <head>
           <meta charset="utf-8"/>
@@ -67,6 +72,6 @@ const receipt = function(obj) {
         <p>&copy; 2020 | Gruppe 4 - Casper Pedersen, Jacob Krag, Mads Møller</p>
       </footer>
   </html>`;
-  return html;
+    return html;
 };
 exports.receipt = receipt;
