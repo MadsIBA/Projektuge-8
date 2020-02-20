@@ -65,9 +65,9 @@ const receipt = function(obj) {
                         <h2>Language Added: ${obj.POST.language}</h2><br>
 
                         <div class="collectionDetails">
-                            Land: ${obj.POST.languageCountry}<br>
-                            Procent der taler sproget: ${obj.POST.languagePercent}<br>
-                            Nationalt sprog: ${obj.POST.languageOfficial}<br>
+                            Country: ${obj.POST.languageCountry}<br>
+                            % of the Country who speaks the language: ${obj.POST.languagePercent}<br>
+                            Official Language of the Country: ${obj.POST.languageOfficial}<br>
                         </div>
                     </p>
                     <button><a href="/viewlanguage">Go to the language database</a></button>

@@ -29,29 +29,33 @@ const listdb = function(obj) {
             </div>
         </main>
         <div class="collection">
-        <button id="sortBtn" class="sortBtn" onclick="sortList()">Sort list by Language</button>
-        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for language.." title="Type in a language">
-          <ul id="myUL" class="myUL">`;
-
-    let htmlbot = `        </ul>
-  </div>
-  <center><p>EU Country data is collected from: <a href="https://ec.europa.eu/commfrontoffice/publicopinion/archives/ebs/ebs_243_en.pdf" style="color: white;">Europeans and their Languages (PDF)</a></p></center>
- </body>
- <footer>
-   <p>&copy; 2020 | Gruppe 4 - Casper Pedersen, Jacob Krag, Mads Møller</p>
- </footer>
+            <button id="sortBtn" class="sortBtn" onclick="sortList()">Sort list by Language</button>
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for language.." title="Type in a language">
+            <ul id="myUL" class="myUL">`;
+    let htmlbot = `
+            </ul>
+        </div>
+        <center>
+            <p>
+                EU Country data is collected from: <a href="https://ec.europa.eu/commfrontoffice/publicopinion/archives/ebs/ebs_243_en.pdf" style="color: white;">Europeans and their Languages (PDF)</a>
+            </p>
+        </center>
+    </body>
+    <footer>
+        <p>&copy; 2020 | Gruppe 4 - Casper Pedersen, Jacob Krag, Mads Møller</p>
+    </footer>
 </html>`;
 
     let dynamic = '';
     for (var i = 0; i < `${obj.length}`; i++) {
         dynamic += `
         <li><a href="#"><em>${obj[i].language}</em></a>
-      <div class="collectionDetails">
-        Land: ${obj[i].languageCountry}<br>
-        Procent del af landet der taler sproget: ${obj[i].languagePercent}<br>
-        Er sproget det officielle sprog: ${obj[i].languageOfficial}
-      </div>
-    </li>`;
+            <div class="collectionDetails">
+                Country: ${obj[i].languageCountry}<br>
+                % of the Country who speaks the language: ${obj[i].languagePercent}<br>
+                Official Language of the Country: ${obj[i].languageOfficial}
+            </div>
+        </li>`;
     }
     //dynamic += `<p><em>${obj[0].name}</em></p>`;
 

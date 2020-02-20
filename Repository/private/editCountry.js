@@ -17,7 +17,13 @@ const receipt = function(obj) {
          * inserts countries into the database
          */
 
-        let object = { name: `${obj.POST.name}`, continent: `${obj.POST.continent}`, areaSize: `${obj.POST.areaSize}`, population: `${obj.POST.population}`, government: `${obj.POST.government}` };
+        let object = {
+            name: `${obj.POST.name}`,
+            continent: `${obj.POST.continent}`,
+            areaSize: `${obj.POST.areaSize}`,
+            population: `${obj.POST.population}`,
+            government: `${obj.POST.government}`
+        };
 
         db.collection('country').updateOne({ name: `${object.name}` }, { $set: object }, { upsert: true }, function(err, collection) {
             if (err) {
@@ -53,10 +59,10 @@ const receipt = function(obj) {
                         <h2>Country Added: ${obj.POST.name}</h2><br>
                         
                         <div class="collectionDetails">
-                            Kontinent: ${obj.POST.continent}<br>
-                            Areal: ${obj.POST.areaSize}<br>
-                            Befolkningstal: ${obj.POST.population}<br>
-                            Styreform: ${obj.POST.government}<br>
+                            Continent: ${obj.POST.continent}<br>
+                            Country Size (km&sup2;): ${obj.POST.areaSize}<br>
+                            Population: ${obj.POST.population}<br>
+                            Form of government: ${obj.POST.government}<br>
                         </div>
                     </p>
                     <button><a href="/viewcountry">Go to the country database</a></button>

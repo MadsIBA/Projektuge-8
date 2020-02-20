@@ -36,7 +36,7 @@ const listdb = function(obj) {
                             Continent:<br />
                             <!--<input type="text" name="continent" required>-->
                             <select name="continent" id="continent" required>
-                                <option disabled selected value> -- Vælg et kontinent -- </option>
+                                <option disabled selected value> -- Select Continent -- </option>
                                 <option value="Asia">Asia</option>
                                 <option value="Africa">Africa</option>
                                 <option value="North America">Norht America</option>

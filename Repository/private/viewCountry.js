@@ -27,19 +27,17 @@ const listdb = function(obj) {
                 <a href="/viewcity"><button class="buttonView">View the City Database</button></a>
                 <a href="/viewlanguage"><button class="buttonView">View the Language Database</button></a>
             </div>
-        </main>
-
-        
+        </main>   
         <div class="collection">
-        <button id="sortBtn" class="sortBtn" onclick="sortList()">Sort list by name</button>
-        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for country.." title="Type in a country">
-          <ul id="myUL" class="myUL">`;
-
-    let htmlbot = `</ul>
-     </div>
+            <button id="sortBtn" class="sortBtn" onclick="sortList()">Sort list by name</button>
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for country.." title="Type in a country">
+            <ul id="myUL" class="myUL">`;
+    let htmlbot = `
+            </ul>
+        </div>
     </body>
     <footer>
-      <p>&copy; 2020 | Gruppe 4 - Casper Pedersen, Jacob Krag, Mads Møller</p>
+        <p>&copy; 2020 | Gruppe 4 - Casper Pedersen, Jacob Krag, Mads Møller</p>
     </footer>
 </html>`;
 
@@ -47,12 +45,12 @@ const listdb = function(obj) {
     for (var i = 0; i < `${obj.length}`; i++) {
         dynamic += `
         <li><a href="#"><em>${obj[i].name}</em></a>
-          <div class="collectionDetails">
-            Kontinent: ${obj[i].continent}<br>
-            Areal: ${obj[i].areaSize}<br>
-            Befolkningstal: ${obj[i].population}<br>
-            Styreform: ${obj[i].government}
-          </div>
+            <div class="collectionDetails">
+                Continent: ${obj[i].continent}<br>
+                Country Size (km&sup2;): ${obj[i].areaSize}<br>
+                Population: ${obj[i].population}<br>
+                Form of government: ${obj[i].government}
+            </div>
         </li>`;
     }
     //dynamic += `<p><em>${obj[0].name}</em></p>`;

@@ -29,27 +29,27 @@ const listdb = function(obj) {
             </div>
         </main>
         <div class="collection">
-        <button id="sortBtn" class="sortBtn" onclick="sortList()">Sort list by city</button>
-        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for city.." title="Type in a city">
-          <ul id="myUL" class="myUL">`;
-
-    let htmlbot = `        </ul>
-    </div>
-   </body>
-   <footer>
-     <p>&copy; 2020 | Gruppe 4 - Casper Pedersen, Jacob Krag, Mads Møller</p>
-   </footer>
+            <button id="sortBtn" class="sortBtn" onclick="sortList()">Sort list by city</button>
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for city.." title="Type in a city">
+            <ul id="myUL" class="myUL">`;
+    let htmlbot = `        
+            </ul>
+        </div>
+    </body>
+    <footer>
+        <p>&copy; 2020 | Gruppe 4 - Casper Pedersen, Jacob Krag, Mads Møller</p>
+    </footer>
 </html>`;
 
     let dynamic = '';
     for (var i = 0; i < `${obj.length}`; i++) {
         dynamic += `
         <li><a href="#"><em>${obj[i].cityName}</em></a>
-          <div class="collectionDetails">
-            Land: ${obj[i].cityCountry}<br>
-            Befolkningstal: ${obj[i].cityPopulation}<br>
-            Hovedestad: ${obj[i].cityCapital}
-          </div>
+            <div class="collectionDetails">
+                Country: ${obj[i].cityCountry}<br>
+                City Population: ${obj[i].cityPopulation}<br>
+                Country Capital: ${obj[i].cityCapital}
+            </div>
         </li>`;
     }
     //dynamic += `<p><em>${obj[0].name}</em></p>`;

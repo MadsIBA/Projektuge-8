@@ -65,9 +65,9 @@ const receipt = function(obj) {
                         <h2>City Added: ${obj.POST.cityName}</h2><br>
                     
                         <div class="collectionDetails">
-                            Land: ${obj.POST.cityCountry}<br>
-                            Befolkningstal: ${obj.POST.cityPopulation}<br>
-                            Hovedestad: ${obj.POST.cityCapital}<br>
+                            Country: ${obj.POST.cityCountry}<br>
+                            City Population: ${obj.POST.cityPopulation}<br>
+                            Country Capital: ${obj.POST.cityCapital}<br>
                         </div>
                     </p>
                     <button><a href="/viewcity">Go to the city database</a></button>
