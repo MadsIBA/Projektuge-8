@@ -30,7 +30,7 @@ const listdb = function(obj) {
                         <h2>Country</h2>
                         <p>
                             Name of Country:<br />
-                            <input type="text" name="name" maxlength="100" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)" title="Special characters and numbers not allowed!" required />
+                            <input type="text" name="name" maxlength="100" onkeypress="return (event.charCode === 32) || (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)" title="Special characters and numbers not allowed!" required />
                         </p>
                         <p>
                             Continent:<br />
@@ -56,7 +56,7 @@ const listdb = function(obj) {
                         </p>
                         <p>
                             Form of government:<br />
-                            <input type="text" name="government" maxlength="100" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)" title="Special characters and numbers not allowed!" required />
+                            <input type="text" name="government" maxlength="100" onkeypress="return (event.charCode === 32) || (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)" title="Special characters and numbers not allowed!" required />
                         </p>
                         <p>
                             <br />
@@ -70,7 +70,7 @@ const listdb = function(obj) {
                         <h2>City</h2>
                         <p>
                             Name of City:<br />
-                            <input type="text" name="cityName" maxlength="100" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode > 191 && event.charCode < 215) || (event.charCode > 215 && event.charCode < 247) || (event.charCode > 247 && event.charCode < 256)" title="Numbers not allowed!" required />
+                            <input type="text" name="cityName" maxlength="100" onkeypress="return (event.charCode === 32) || (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode > 191 && event.charCode < 215) || (event.charCode > 215 && event.charCode < 247) || (event.charCode > 247 && event.charCode < 256)" title="Numbers not allowed!" required />
                         </p>
                         <p>
                             Country:<br />
@@ -100,7 +100,7 @@ const listdb = function(obj) {
                         <h2>Language</h2>
                         <p>
                             Language Name:<br />
-                            <input type="text" name="language" maxlength="100" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode > 191 && event.charCode < 215) || (event.charCode > 215 && event.charCode < 247) || (event.charCode > 247 && event.charCode < 256)" title="Numbers not allowed!" required />
+                            <input type="text" name="language" maxlength="100" onkeypress="return (event.charCode === 32) || (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode > 191 && event.charCode < 215) || (event.charCode > 215 && event.charCode < 247) || (event.charCode > 247 && event.charCode < 256)" title="Numbers not allowed!" required />
                         </p>
                         <p>
                             Country:<br />
