@@ -1,0 +1,4 @@
+{"_id":{"$oid":"5e4eff34f31a7a71eecb43a0"},"cityCountry":"denmark","cityName":"sønderborg","cityCapital":"no","cityPopulation":"20000"}
+{"_id":{"$oid":"5e4eff4bf31a7a71eecb43ab"},"cityCountry":"denmark","cityName":"kolding","cityCapital":"no","cityPopulation":"92893"}
+{"_id":{"$oid":"5e4eff64f31a7a71eecb43be"},"cityCountry":"united kingdom","cityName":"london","cityCapital":"yes","cityPopulation":"9304016"}
+{"_id":{"$oid":"5e4effbbf31a7a71eecb43de"},"cityCountry":"sweden","cityName":"stockholm","cityCapital":"yes","cityPopulation":"972647"}

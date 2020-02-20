@@ -44,11 +44,11 @@ const listdb = function(obj) {
     let dynamic = '';
     for (var i = 0; i < `${obj.length}`; i++) {
         dynamic += `
-        <li><a href="#"><em>${obj[i].cityName}</em></a>
+        <li><a href="#"><em>${obj[i].cityName.charAt(0).toUpperCase() + obj[i].cityName.slice(1).toLowerCase()}</em></a>
             <div class="collectionDetails">
-                Country: ${obj[i].cityCountry}<br>
+                Country: ${obj[i].cityCountry.charAt(0).toUpperCase() + obj[i].cityCountry.slice(1).toLowerCase()}<br>
                 City Population: ${obj[i].cityPopulation.split(/(?=(?:...)*$)/)}<br>
-                Country Capital: ${obj[i].cityCapital}
+                Country Capital: ${obj[i].cityCapital.charAt(0).toUpperCase() + obj[i].cityCapital.slice(1).toLowerCase()}
             </div>
         </li>`;
     }

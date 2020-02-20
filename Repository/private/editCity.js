@@ -20,15 +20,15 @@ const receipt = function(obj) {
          */
 
         let object = {
-            cityName: `${obj.POST.cityName}`,
-            cityCountry: `${obj.POST.cityCountry}`,
+            cityName: `${obj.POST.cityName.toLowerCase()}`,
+            cityCountry: `${obj.POST.cityCountry.toLowerCase()}`,
             cityPopulation: `${obj.POST.cityPopulation}`,
-            cityCapital: `${obj.POST.cityCapital}`
+            cityCapital: `${obj.POST.cityCapital.toLowerCase()}`
         };
 
         db.collection('city').updateOne(
             { cityName: `${object.cityName}`, cityCountry: `${object.cityCountry}` },
-            { $set: { cityPopulation: `${obj.POST.cityPopulation}`, cityCapital: `${obj.POST.cityCapital}` } },
+            { $set: { cityPopulation: `${obj.POST.cityPopulation}`, cityCapital: `${obj.POST.cityCapital.toLowerCase()}` } },
             { upsert: true },
             function(err, collection) {
                 if (err) {
@@ -62,12 +62,12 @@ const receipt = function(obj) {
             <main>
                 <div class="collection">
                     <p>
-                        <h2>City Added: ${obj.POST.cityName}</h2><br>
+                        <h2>City Added: ${obj.POST.cityName.charAt(0).toUpperCase() + obj.POST.cityName.slice(1).toLowerCase()}</h2><br>
                     
                         <div class="collectionDetails">
-                            Country: ${obj.POST.cityCountry}<br>
+                            Country: ${obj.POST.cityCountry.charAt(0).toUpperCase() + obj.POST.cityCountry.slice(1).toLowerCase()}<br>
                             City Population: ${obj.POST.cityPopulation.split(/(?=(?:...)*$)/)}<br>
-                            Country Capital: ${obj.POST.cityCapital}<br>
+                            Country Capital: ${obj.POST.cityCapital.charAt(0).toUpperCase() + obj.POST.cityCapital.slice(1).toLowerCase()}<br>
                         </div>
                     </p>
                     <button><a href="/viewcity">Go to the city database</a></button>

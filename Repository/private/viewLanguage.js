@@ -49,11 +49,11 @@ const listdb = function(obj) {
     let dynamic = '';
     for (var i = 0; i < `${obj.length}`; i++) {
         dynamic += `
-        <li><a href="#"><em>${obj[i].language}</em></a>
+        <li><a href="#"><em>${obj[i].language.charAt(0).toUpperCase() + obj[i].language.slice(1).toLowerCase()}</em></a>
             <div class="collectionDetails">
-                Country: ${obj[i].languageCountry}<br>
+                Country: ${obj[i].languageCountry.charAt(0).toUpperCase() + obj[i].languageCountry.slice(1).toLowerCase()}<br>
                 % of the Country who speaks the language: ${obj[i].languagePercent}<br>
-                Official Country Language: ${obj[i].languageOfficial}
+                Official Country Language: ${obj[i].languageOfficial.charAt(0).toUpperCase() + obj[i].languageOfficial.slice(1).toLowerCase()}
             </div>
         </li>`;
     }

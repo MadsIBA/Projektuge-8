@@ -1,0 +1,5 @@
+{"_id":{"$oid":"5e4f018ef31a7a71eecb4456"},"language":"danish","languageCountry":"denmark","languageOfficial":"yes","languagePercent":"97"}
+{"_id":{"$oid":"5e4f01a4f31a7a71eecb4468"},"language":"german","languageCountry":"denmark","languageOfficial":"no","languagePercent":"47"}
+{"_id":{"$oid":"5e4f01b4f31a7a71eecb447a"},"language":"swedish","languageCountry":"denmark","languageOfficial":"no","languagePercent":"13"}
+{"_id":{"$oid":"5e4f01c7f31a7a71eecb448a"},"language":"english","languageCountry":"denmark","languageOfficial":"no","languagePercent":"86"}
+{"_id":{"$oid":"5e4f01dcf31a7a71eecb449d"},"language":"english","languageCountry":"united kingdom","languageOfficial":"yes","languagePercent":"92"}

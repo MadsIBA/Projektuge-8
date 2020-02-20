@@ -44,12 +44,12 @@ const listdb = function(obj) {
     let dynamic = '';
     for (var i = 0; i < `${obj.length}`; i++) {
         dynamic += `
-        <li><a href="#"><em>${obj[i].name}</em></a>
+        <li><a href="#"><em>${obj[i].name.charAt(0).toUpperCase() + obj[i].name.slice(1).toLowerCase()}</em></a>
             <div class="collectionDetails">
-                Continent: ${obj[i].continent}<br>
+                Continent: ${obj[i].continent.charAt(0).toUpperCase() + obj[i].continent.slice(1).toLowerCase()}<br>
                 Country Size (km&sup2;): ${obj[i].areaSize.split(/(?=(?:...)*$)/)}<br>
                 Population: ${obj[i].population.split(/(?=(?:...)*$)/)}<br>
-                Form of government: ${obj[i].government}
+                Form of government: ${obj[i].government.charAt(0).toUpperCase() + obj[i].government.slice(1).toLowerCase()}
             </div>
         </li>`;
     }

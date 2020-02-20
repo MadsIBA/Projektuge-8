@@ -141,7 +141,7 @@ const listdb = function(obj) {
     let dynamic = '';
     for (var i = 0; i < `${obj.length}`; i++) {
         dynamic += `
-            <option>${obj[i].name}</option>`;
+            <option>${obj[i].name.charAt(0).toUpperCase() + obj[i].name.slice(1).toLowerCase()}</option>`;
     }
     //dynamic += `<p><em>${obj[0].name}</em></p>`;
 

@@ -1,0 +1,5 @@
+{"_id":{"$oid":"5e4ef561f31a7a71eecb40ee"},"name":"denmark","areaSize":"42933","continent":"europe","government":"unitary parliamentary constitutional monarchy","population":"5822763"}
+{"_id":{"$oid":"5e4efbb0f31a7a71eecb423f"},"name":"japan","areaSize":"377975","continent":"asia","government":"unitary parliamentary constitutional monarch","population":"126150000"}
+{"_id":{"$oid":"5e4efc20f31a7a71eecb427d"},"name":"sweden","areaSize":"450295","continent":"europe","government":"unitary parliamentary constitutional monarchy","population":"10302984"}
+{"_id":{"$oid":"5e4efc42f31a7a71eecb4291"},"name":"norway","areaSize":"385207","continent":"europe","government":"unitary parliamentary constitutional monarchy","population":"5356789"}
+{"_id":{"$oid":"5e4efc6ef31a7a71eecb42a5"},"name":"united kingdom","areaSize":"242495","continent":"europe","government":"unitary parliamentary constitutional monarchy","population":"67545757"}

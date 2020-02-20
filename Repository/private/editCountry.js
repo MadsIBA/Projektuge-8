@@ -18,11 +18,11 @@ const receipt = function(obj) {
          */
 
         let object = {
-            name: `${obj.POST.name}`,
-            continent: `${obj.POST.continent}`,
+            name: `${obj.POST.name.toLowerCase()}`,
+            continent: `${obj.POST.continent.toLowerCase()}`,
             areaSize: `${obj.POST.areaSize}`,
             population: `${obj.POST.population}`,
-            government: `${obj.POST.government}`
+            government: `${obj.POST.government.toLowerCase()}`
         };
 
         db.collection('country').updateOne({ name: `${object.name}` }, { $set: object }, { upsert: true }, function(err, collection) {
@@ -56,13 +56,13 @@ const receipt = function(obj) {
             <main>
                 <div class="collection">
                     <p>
-                        <h2>Country Added: ${obj.POST.name}</h2><br>
+                        <h2>Country Added: ${obj.POST.name.charAt(0).toUpperCase() + obj.POST.name.slice(1).toLowerCase()}</h2><br>
                         
                         <div class="collectionDetails">
-                            Continent: ${obj.POST.continent}<br>
+                            Continent: ${obj.POST.continent.charAt(0).toUpperCase() + obj.POST.continent.slice(1).toLowerCase()}<br>
                             Country Size (km&sup2;): ${obj.POST.areaSize.split(/(?=(?:...)*$)/)}<br>
                             Population: ${obj.POST.population.split(/(?=(?:...)*$)/)}<br>
-                            Form of government: ${obj.POST.government}<br>
+                            Form of government: ${obj.POST.government.charAt(0).toUpperCase() + obj.POST.government.slice(1).toLowerCase()}<br>
                         </div>
                     </p>
                     <button><a href="/viewcountry">Go to the country database</a></button>

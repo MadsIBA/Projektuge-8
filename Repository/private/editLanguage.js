@@ -20,15 +20,15 @@ const receipt = function(obj) {
          */
 
         let object = {
-            language: `${obj.POST.language}`,
-            languageCountry: `${obj.POST.languageCountry}`,
+            language: `${obj.POST.language.toLowerCase()}`,
+            languageCountry: `${obj.POST.languageCountry.toLowerCase()}`,
             languagePercent: `${obj.POST.languagePercent}`,
-            languageOfficial: `${obj.POST.languageOfficial}`
+            languageOfficial: `${obj.POST.languageOfficial.toLowerCase()}`
         };
 
         db.collection('language').updateOne(
             { language: `${object.language}`, languageCountry: `${object.languageCountry}` },
-            { $set: { languagePercent: `${obj.POST.languagePercent}`, languageOfficial: `${obj.POST.languageOfficial}` } },
+            { $set: { languagePercent: `${obj.POST.languagePercent}`, languageOfficial: `${obj.POST.languageOfficial.toLowerCase()}` } },
             { upsert: true },
             function(err, collection) {
                 if (err) {
@@ -62,12 +62,13 @@ const receipt = function(obj) {
             <main>
                 <div class="collection">
                     <p>
-                        <h2>Language Added: ${obj.POST.language}</h2><br>
+                        <h2>Language Added: ${obj.POST.language.charAt(0).toUpperCase() + obj.POST.language.slice(1).toLowerCase()}</h2><br>
 
                         <div class="collectionDetails">
-                            Country: ${obj.POST.languageCountry}<br>
+                            Country: ${obj.POST.languageCountry.charAt(0).toUpperCase() + obj.POST.languageCountry.slice(1).toLowerCase()}<br>
                             % of the Country who speaks the language: ${obj.POST.languagePercent}<br>
-                            Official Country Language: ${obj.POST.languageOfficial}<br>
+                            Official Country Language: ${obj.POST.languageOfficial.charAt(0).toUpperCase() +
+                                obj.POST.languageOfficial.slice(1).toLowerCase()}<br>
                         </div>
                     </p>
                     <button><a href="/viewlanguage">Go to the language database</a></button>
