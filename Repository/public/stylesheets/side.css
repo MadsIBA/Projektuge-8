@@ -67,6 +67,14 @@ form p {
     padding-bottom: 1em;
 }
 
+select {
+    width: 171px;
+}
+
+input[type=submit] {
+    padding: 5px 12px 5px 12px;
+}
+
 footer {
     position: fixed;
     bottom: 0;

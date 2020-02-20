@@ -35,7 +35,7 @@ const listdb = function(obj) {
                         <p>
                             Continent:<br />
                             <!--<input type="text" name="continent" required>-->
-                            <select name="continent" id="continent" required>
+                            <select name="continent" id="continent" size="10" required>
                                 <option disabled selected value> -- Select Continent -- </option>
                                 <option value="Asia">Asia</option>
                                 <option value="Africa">Africa</option>
@@ -74,7 +74,7 @@ const listdb = function(obj) {
                         </p>
                         <p>
                             Country:<br />
-                            <select name="cityCountry" required>
+                            <select name="cityCountry" size="10" required>
                                 <option disabled selected value> -- Select Country -- </option>`;
     let htmlmiddle = `          
                             </select>        
@@ -104,17 +104,17 @@ const listdb = function(obj) {
                         </p>
                         <p>
                             Country:<br />
-                            <select name="languageCountry" required>
+                            <select name="languageCountry" size="10" required>
                                 <option disabled selected value> -- Select Country -- </option>`;
     let htmlbot = `
                             </select>
                         </p>
                         <p>
-                            % of the Country who speaks the language: <br />
+                            % of the Country who speaks<br>the language: <br />
                             <input type="number" name="languagePercent" maxlength="3" required />
                         </p>
                         <p>
-                            Official Language of the Country:<br />
+                            Official Country Language:<br />
                             <label><input type="radio" name="languageOfficial" value="Yes" required>Yes</label><br>
                             <label><input type="radio" name="languageOfficial" value="No">No</label>
                         </p>

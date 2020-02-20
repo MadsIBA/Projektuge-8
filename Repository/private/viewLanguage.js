@@ -53,7 +53,7 @@ const listdb = function(obj) {
             <div class="collectionDetails">
                 Country: ${obj[i].languageCountry}<br>
                 % of the Country who speaks the language: ${obj[i].languagePercent}<br>
-                Official Language of the Country: ${obj[i].languageOfficial}
+                Official Country Language: ${obj[i].languageOfficial}
             </div>
         </li>`;
     }
