@@ -47,8 +47,8 @@ const listdb = function(obj) {
         <li><a href="#"><em>${obj[i].name}</em></a>
             <div class="collectionDetails">
                 Continent: ${obj[i].continent}<br>
-                Country Size (km&sup2;): ${obj[i].areaSize}<br>
-                Population: ${obj[i].population}<br>
+                Country Size (km&sup2;): ${obj[i].areaSize.split(/(?=(?:...)*$)/)}<br>
+                Population: ${obj[i].population.split(/(?=(?:...)*$)/)}<br>
                 Form of government: ${obj[i].government}
             </div>
         </li>`;

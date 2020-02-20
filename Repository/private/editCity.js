@@ -66,7 +66,7 @@ const receipt = function(obj) {
                     
                         <div class="collectionDetails">
                             Country: ${obj.POST.cityCountry}<br>
-                            City Population: ${obj.POST.cityPopulation}<br>
+                            City Population: ${obj.POST.cityPopulation.split(/(?=(?:...)*$)/)}<br>
                             Country Capital: ${obj.POST.cityCapital}<br>
                         </div>
                     </p>

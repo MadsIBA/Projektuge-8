@@ -60,8 +60,8 @@ const receipt = function(obj) {
                         
                         <div class="collectionDetails">
                             Continent: ${obj.POST.continent}<br>
-                            Country Size (km&sup2;): ${obj.POST.areaSize}<br>
-                            Population: ${obj.POST.population}<br>
+                            Country Size (km&sup2;): ${obj.POST.areaSize.split(/(?=(?:...)*$)/)}<br>
+                            Population: ${obj.POST.population.split(/(?=(?:...)*$)/)}<br>
                             Form of government: ${obj.POST.government}<br>
                         </div>
                     </p>

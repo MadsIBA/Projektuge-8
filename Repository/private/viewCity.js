@@ -47,7 +47,7 @@ const listdb = function(obj) {
         <li><a href="#"><em>${obj[i].cityName}</em></a>
             <div class="collectionDetails">
                 Country: ${obj[i].cityCountry}<br>
-                City Population: ${obj[i].cityPopulation}<br>
+                City Population: ${obj[i].cityPopulation.split(/(?=(?:...)*$)/)}<br>
                 Country Capital: ${obj[i].cityCapital}
             </div>
         </li>`;
