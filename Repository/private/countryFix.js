@@ -29,11 +29,11 @@ const listdb = function(obj) {
                     <div>
                         <h2>Country</h2>
                         <p>
-                            Navn:<br />
-                            <input type="text" name="name" required />
+                            Name of Country:<br />
+                            <input type="text" name="name" maxlength="100" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)" title="Special characters and numbers not allowed!" required />
                         </p>
                         <p>
-                            Kontinent:<br />
+                            Continent:<br />
                             <!--<input type="text" name="continent" required>-->
                             <select name="continent" id="continent" required>
                                 <option disabled selected value> -- Vælg et kontinent -- </option>
@@ -47,18 +47,21 @@ const listdb = function(obj) {
                             </select>
                         </p>
                         <p>
-                            Areal: <br />
-                            <input type="text" name="areaSize" required />
+                            Country Size (km&sup2;): <br />
+                            <input type="number" name="areaSize" maxlength="25" required />
                         </p>
                         <p>
-                            Befolkningstal:<br />
-                            <input type="text" name="population" required />
+                            Population:<br />
+                            <input type="number" name="population" maxlength="25" required />
                         </p>
                         <p>
-                            Styreform:<br />
-                            <input type="text" name="government" required />
+                            Form of government:<br />
+                            <input type="text" name="government" maxlength="100" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)" title="Special characters and numbers not allowed!" required />
                         </p>
-                        <p><br /><input type="submit" value="Send" /></p>
+                        <p>
+                            <br />
+                                <input type="submit" value="Edit/Add" />
+                        </p>
                     </div>
                 </form>
     
@@ -66,73 +69,76 @@ const listdb = function(obj) {
                     <div>
                         <h2>City</h2>
                         <p>
-                            Navn:<br />
-                            <input type="text" name="cityName" required />
+                            Name of City:<br />
+                            <input type="text" name="cityName" maxlength="100" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode > 191 && event.charCode < 215) || (event.charCode > 215 && event.charCode < 247) || (event.charCode > 247 && event.charCode < 256)" title="Numbers not allowed!" required />
                         </p>
                         <p>
-                            Land:<br />
+                            Country:<br />
                             <select name="cityCountry" required>
-                            <option disabled selected value> -- Vælg et Land -- </option>`;
+                                <option disabled selected value> -- Select Country -- </option>`;
+    let htmlmiddle = `          
+                            </select>        
+                        </p>
+                        <p>
+                            City Population: <br />
+                            <input type="number" name="cityPopulation" maxlength="25" required />
+                        </p>
+                        <p>
+                            Country Capital:<br />
+                            <label><input type="radio" name="cityCapital" value="Yes" required>Yes</label><br>
+                            <label><input type="radio" name="cityCapital" value="No">No</label>
+                        </p>
+                        <p>
+                            <br />
+                                <input type="submit" value="Edit/Add" />
+                        </p>
+                    </div>
+                </form>
 
-    let htmlmiddle = `
-    </select>        
-    </p>
-    <p>
-        Befolkningstal: <br />
-        <input type="text" name="cityPopulation" required />
-    </p>
-    <p>
-        Hovedestad:<br /><br />
-        <label><input type="radio" name="cityCapital" value="Ja" required>JA</label>
-        <label><input type="radio" name="cityCapital" value="Nej">NEJ</label>
-    </p>
-    <p><br /><input type="submit" value="Send" /></p>
-</div>
-</form>
-
-<form method="post" action="/language">
-<div>
-    <h2>Language</h2>
-    <p>
-        Sprog:<br />
-        <input type="text" name="language" required />
-    </p>
-    <p>
-        Land:<br />
-        <select name="languageCountry" required>
-        <option disabled selected value> -- Vælg et Land -- </option>`;
-
+                <form method="post" action="/language">
+                    <div>
+                        <h2>Language</h2>
+                        <p>
+                            Language Name:<br />
+                            <input type="text" name="language" maxlength="100" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode > 191 && event.charCode < 215) || (event.charCode > 215 && event.charCode < 247) || (event.charCode > 247 && event.charCode < 256)" title="Numbers not allowed!" required />
+                        </p>
+                        <p>
+                            Country:<br />
+                            <select name="languageCountry" required>
+                                <option disabled selected value> -- Select Country -- </option>`;
     let htmlbot = `
-    </select>
-    </p>
-    <p>
-        Procent der taler sproget: <br />
-        <input type="text" name="languagePercent" required />
-    </p>
-    <p>
-        Nationalt sprog:<br /><br />
-        <label><input type="radio" name="languageOfficial" value="Ja" required>JA</label>
-        <label><input type="radio" name="languageOfficial" value="Nej">NEJ</label>
-    </p>
-    <p><br /><input type="submit" value="Send" /></p>
-</div>
-</form>
-</div>
-</main>
+                            </select>
+                        </p>
+                        <p>
+                            % of the Country who speaks the language: <br />
+                            <input type="number" name="languagePercent" maxlength="3" required />
+                        </p>
+                        <p>
+                            Official Language of the Country:<br />
+                            <label><input type="radio" name="languageOfficial" value="Yes" required>Yes</label><br>
+                            <label><input type="radio" name="languageOfficial" value="No">No</label>
+                        </p>
+                        <p>
+                            <br />
+                                <input type="submit" value="Edit/Add" />
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </main>
 
-<footer>
-<p>
-&copy; 2020 | Gruppe 4 - Casper Pedersen, Jacob Krag, Mads Møller
-</p>
-</footer>
-</body>
+        <footer>
+            <p>
+                &copy; 2020 | Gruppe 4 - Casper Pedersen, Jacob Krag, Mads Møller
+            </p>
+        </footer>
+    </body>
 
-</html>`;
+    </html>`;
 
     let dynamic = '';
     for (var i = 0; i < `${obj.length}`; i++) {
         dynamic += `
-
             <option>${obj[i].name}</option>`;
     }
     //dynamic += `<p><em>${obj[0].name}</em></p>`;
